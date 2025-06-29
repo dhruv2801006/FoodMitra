@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodmitra</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar" style="display:none;">
+        <div class="logo">🍽️ Foodmitra</div>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#menu" class="nav-link">Menu</a></li>
+            <li><a href="#cart" class="nav-link">Cart</a></li>
+            <li><a href="#offers" class="nav-link">Offers</a></li>
+            <li class="profile-nav">
+                <button id="profile-btn" class="profile-btn">Profile</button>
+                <div id="profile-dropdown" class="profile-dropdown" style="display:none;">
+                    <div id="profile-greeting">Hello, <span id="profile-username">Guest</span>!</div>
+                    <button id="profile-login-btn" class="profile-action-btn">Login</button>
+                    <button id="profile-signup-btn" class="profile-action-btn">Signup</button>
+                    <button id="profile-logout-btn" class="profile-action-btn" style="display:none;">Logout</button>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div id="main-content" style="display:none;">
+        <section id="home" class="section">
+            <h1>Welcome to Foodmitra</h1>
+            <p>Your favorite meals delivered fast at your door.</p>
+            <button id="view-menu-btn" class="view-menu-btn">View Menu</button>
+        </section>
+        <section id="menu" class="section" style="display:none;">
+            <h2>Restaurants & Menu</h2>
+            
+            <!-- Category Navigation -->
+            <div class="category-nav">
+                <button class="category-btn active" data-category="all">All Categories</button>
+                <button class="category-btn" data-category="pizza">🍕 Pizza Bar</button>
+                <button class="category-btn" data-category="burger">🍔 Burger House</button>
+                <button class="category-btn" data-category="sandwich">🥪 Sandwich Corner</button>
+                <button class="category-btn" data-category="indian">🍛 Indian Spice</button>
+                <button class="category-btn" data-category="combo">🍽️ Combo Meals</button>
+                <button class="category-btn" data-category="dessert">🍰 Dessert Corner</button>
+                <button class="category-btn" data-category="beverage">🥤 Beverage Station</button>
+            </div>
+            
+            <!-- Search Bar -->
+            <div style="margin-bottom: 2rem; text-align: center;">
+                <input type="text" id="menu-search" placeholder="Search menu items..." style="padding: 0.6rem; width: 60%; max-width: 350px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;">
+            </div>
+            
+            <!-- Menu Items Container -->
+            <div id="menu-items-container">
+                <!-- Pizza Category -->
+                <div class="hotel-section" data-category="pizza">
+                <h3>🍕 Pizza Palace</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="https://static.toiimg.com/photo/56868564.cms" alt="Margherita Pizza">
+                        <h4>Margherita Pizza</h4>
+                        <p>Classic tomato and mozzarella</p>
+                        <span class="price">₹199</span>
+                        <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                        <button class="add-to-cart" data-hotel="Pizza Palace" data-item="Margherita Pizza" data-price="199">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=100&h=100&fit=crop" alt="Veggie Supreme Pizza">
+                        <h4>Veggie Supreme Pizza</h4>
+                        <p>Loaded with fresh vegetables</p>
+                        <span class="price">₹279</span>
+                        <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                        <button class="add-to-cart" data-hotel="Pizza Palace" data-item="Veggie Supreme Pizza" data-price="279">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=100&h=100&fit=crop" alt="Paneer Tikka Pizza">
+                        <h4>Paneer Tikka Pizza</h4>
+                        <p>Spicy paneer tikka with cheese</p>
+                        <span class="price">₹249</span>
+                        <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                        <button class="add-to-cart" data-hotel="Pizza Palace" data-item="Paneer Tikka Pizza" data-price="249">Add to Cart</button>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=100&h=100&fit=crop" alt="BBQ Veggie Pizza">
+                            <h4>BBQ Veggie Pizza</h4>
+                            <p>BBQ sauce with grilled vegetables</p>
+                            <span class="price">₹299</span>
+                            <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                            <button class="add-to-cart" data-hotel="Pizza Palace" data-item="BBQ Veggie Pizza" data-price="299">Add to Cart</button>
+                        </div>
+                </div>
+            </div>
+
+                <!-- Burger Category -->
+                <div class="hotel-section" data-category="burger">
+                <h3>🍔 Burger House</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="https://images.slurrp.com/prod/recipe_images/transcribe/snack/Vegetable-Burger.webp" alt="Vegetable Burger">
+                        <h4>Vegetable Burger</h4>
+                        <p>Loaded with fresh veggies and cheese</p>
+                        <span class="price">₹149</span>
+                        <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                        <button class="add-to-cart" data-hotel="Burger House" data-item="Vegetable Burger" data-price="149">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=100&h=100&fit=crop" alt="Double Cheese Burger">
+                        <h4>Double Cheese Burger</h4>
+                        <p>Double patty with extra cheese (veg)</p>
+                        <span class="price">₹199</span>
+                        <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                        <button class="add-to-cart" data-hotel="Burger House" data-item="Double Cheese Burger" data-price="199">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=100&h=100&fit=crop" alt="Veggie Patty Burger">
+                        <h4>Veggie Patty Burger</h4>
+                        <p>Plant-based patty with fresh veggies</p>
+                        <span class="price">₹179</span>
+                        <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                        <button class="add-to-cart" data-hotel="Burger House" data-item="Veggie Patty Burger" data-price="179">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+                <!-- Sandwich Category -->
+                <div class="hotel-section" data-category="sandwich">
+                <h3>🥪 Sandwich Corner</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src=""https://images.unsplash.com/photo-1553909489-cd47e0907980?w=100&h=100&fit=crop" alt="Veggie Club Sandwich">
+                        <h4>Veggie Club Sandwich</h4>
+                        <p>Triple-decker with fresh vegetables and cheese</p>
+                        <span class="price">₹159</span>
+                        <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                        <button class="add-to-cart" data-hotel="Sandwich Corner" data-item="Veggie Club Sandwich" data-price="159">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1540713434306-58505db1b041?w=100&h=100&fit=crop" alt="Paneer Tikka Sandwich">
+                        <h4>Paneer Tikka Sandwich</h4>
+                        <p>Spicy paneer tikka with mint chutney</p>
+                        <span class="price">₹139</span>
+                        <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                        <button class="add-to-cart" data-hotel="Sandwich Corner" data-item="Paneer Tikka Sandwich" data-price="139">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1553909489-cd47e0907980?w=100&h=100&fit=crop" alt="Mushroom Swiss Sandwich">
+                        <h4>Mushroom Swiss Sandwich</h4>
+                        <p>Sautéed mushrooms with Swiss cheese</p>
+                        <span class="price">₹129</span>
+                        <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                        <button class="add-to-cart" data-hotel="Sandwich Corner" data-item="Mushroom Swiss Sandwich" data-price="129">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=100&h=100&fit=crop" alt="Grilled Cheese Sandwich">
+                        <h4>Grilled Cheese Sandwich</h4>
+                        <p>Classic grilled cheese with tomato soup</p>
+                        <span class="price">₹99</span>
+                        <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                        <button class="add-to-cart" data-hotel="Sandwich Corner" data-item="Grilled Cheese Sandwich" data-price="99">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+                <!-- Indian Category -->
+                <div class="hotel-section" data-category="indian">
+                <h3>🍛 Indian Spice</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=100&h=100&fit=crop" alt="Butter paneer">
+                        <h4>Butter paneer</h4>
+                        <p>Creamy and rich curry</p>
+                        <span class="price">₹249</span>
+                        <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                        <button class="add-to-cart" data-hotel="Indian Spice" data-item="Butter paneer" data-price="249">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=100&h=100&fit=crop" alt="samosa">
+                        <h4>samosa</h4>
+                        <p>Spiced potato filling in crispy pastry</p>
+                        <span class="price">₹20</span>
+                        <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                        <button class="add-to-cart" data-hotel="Indian Spice" data-item="samosa" data-price="20">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=100&h=100&fit=crop" alt="Dal Makhani">
+                        <h4>Dal Makhani</h4>
+                        <p>Slow-cooked black lentils</p>
+                        <span class="price">₹180</span>
+                        <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                        <button class="add-to-cart" data-hotel="Indian Spice" data-item="Dal Makhani" data-price="180">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                            <img src="https://tse4.mm.bing.net/th/id/OIP.eswvy40DIE-6r7xuaSe5EgHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Palak Paneer">
+                        <h4>Palak Paneer</h4>
+                        <p>Spinach curry with cottage cheese</p>
+                        <span class="price">₹220</span>
+                        <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                        <button class="add-to-cart" data-hotel="Indian Spice" data-item="Palak Paneer" data-price="220">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Combo Category -->
+                <div class="hotel-section" data-category="combo">
+                    <h3>🍽️ Combo Meals</h3>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <img src="https://sdmntprwestus2.oaiusercontent.com/files/00000000-783c-61f8-a072-0bd3171b26ef/raw?se=2025-06-29T07%3A05%3A06Z&sp=r&sv=2024-08-04&sr=b&scid=8119fcb0-4194-544e-9bd7-512ce34531dd&skoid=732f244e-db13-47c3-bcc7-7ee02a9397bc&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-29T05%3A27%3A39Z&ske=2025-06-30T05%3A27%3A39Z&sks=b&skv=2024-08-04&sig=YQOJmkkVihFsOy8vHtSaon7/MrG1pCPY0DrJstH1oNc%3D" alt="Pizza Combo">
+                            <h4>Pizza Combo</h4>
+                            <p>Margherita Pizza + Cold Coffee + Tiramisu</p>
+                            <span class="price">₹449</span>
+                            <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                            <button class="add-to-cart" data-hotel="Combo Meals" data-item="Pizza Combo" data-price="449">Add to Cart</button>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://img.lovepik.com/photo/50159/3889.jpg_wh860.jpg" alt="Burger Combo">
+                            <h4>Burger Combo</h4>
+                            <p>Veggie Burger + French Fries + Coca Cola</p>
+                            <span class="price">₹299</span>
+                            <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                            <button class="add-to-cart" data-hotel="Combo Meals" data-item="Burger Combo" data-price="299">Add to Cart</button>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://thumbs.dreamstime.com/b/assorted-indian-food-lunch-dinner-rice-lentils-paneer-dal-makhani-naan-chutney-spices-over-moody-background-selective-focus-120933732.jpg" alt="Indian Thali">
+                            <h4>Indian Thali</h4>
+                            <p>Butter Paneer + Dal Makhani + Rice + Roti</p>
+                            <span class="price">₹649</span>
+                            <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                            <button class="add-to-cart" data-hotel="Combo Meals" data-item="Indian Thali" data-price="649">Add to Cart</button>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://sdmntprwestus2.oaiusercontent.com/files/00000000-7d30-61f8-bfdb-7671a3209e42/raw?se=2025-06-29T07%3A05%3A06Z&sp=r&sv=2024-08-04&sr=b&scid=4178c0bc-a4c6-5fc0-8e6c-7cc11670339f&skoid=732f244e-db13-47c3-bcc7-7ee02a9397bc&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-28T19%3A52%3A04Z&ske=2025-06-29T19%3A52%3A04Z&sks=b&skv=2024-08-04&sig=qANNJiMPQkw%2BJX7uvW%2BDjnGPrgRQ6j7TiFPseps%2BO8Q%3D" alt="Sweet Treat Combo">
+                            <h4>Sweet Treat Combo</h4>
+                            <p>Chocolate Cake + Ice Cream Sundae + Cold Coffee</p>
+                            <span class="price">₹329</span>
+                            <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                            <button class="add-to-cart" data-hotel="Combo Meals" data-item="Sweet Treat Combo" data-price="329">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dessert Category -->
+                <div class="hotel-section" data-category="dessert">
+                    <h3>🍰 Dessert Corner</h3>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <img src="https://tse1.mm.bing.net/th/id/OIP.RF-npsXIp5x4jIvpPilMsgHaLH?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Chocolate Cake">
+                            <h4>Chocolate Cake</h4>
+                            <p>Rich chocolate layer cake</p>
+                            <span class="price">₹120</span>
+                            <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                            <button class="add-to-cart" data-hotel="Dessert Corner" data-item="Chocolate Cake" data-price="120">Add to Cart</button>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://icecreamfromscratch.com/wp-content/uploads/2022/08/Hot-Fudge-Sundae-1.2.jpg" alt="Ice Cream Sundae">
+                            <h4>Ice Cream Sundae</h4>
+                            <p>Vanilla ice cream with toppings</p>
+                            <span class="price">₹150</span>
+                            <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                            <button class="add-to-cart" data-hotel="Dessert Corner" data-item="Ice Cream Sundae" data-price="150">Add to Cart</button>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://images.slurrp.com/prod/articles/1m5e86yy5vl.webp" alt="Gulab Jamun">
+                            <h4>Gulab Jamun</h4>
+                            <p>Sweet milk dumplings in syrup</p>
+                            <span class="price">₹60</span>
+                            <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                            <button class="add-to-cart" data-hotel="Dessert Corner" data-item="Gulab Jamun" data-price="60">Add to Cart</button>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://tse2.mm.bing.net/th/id/OIP.FslUYAtTAGXbUizV0O0cNgAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Tiramisu">
+                            <h4>Tiramisu</h4>
+                            <p>Italian coffee-flavored dessert</p>
+                            <span class="price">₹180</span>
+                            <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                            <button class="add-to-cart" data-hotel="Dessert Corner" data-item="Tiramisu" data-price="180">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beverage Category -->
+                <div class="hotel-section" data-category="beverage">
+                    <h3>🥤 Beverage Station</h3>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <img src="https://somethingiscooking.com/wp-content/uploads/2017/10/fresh-lime-soda-2-682x1024.jpg" alt="Fresh Lime Soda">
+                            <h4>Fresh Lime Soda</h4>
+                            <p>Refreshing lime with soda</p>
+                            <span class="price">₹40</span>
+                            <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                            <button class="add-to-cart" data-hotel="Beverage Station" data-item="Fresh Lime Soda" data-price="40">Add to Cart</button>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://www.whiskaffair.com/wp-content/uploads/2020/05/Mango-Lassi-2-1-1200x1800.jpg" alt="Mango Lassi">
+                            <h4>Mango Lassi</h4>
+                            <p>Sweet mango yogurt drink</p>
+                            <span class="price">₹80</span>
+                            <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                            <button class="add-to-cart" data-hotel="Beverage Station" data-item="Mango Lassi" data-price="80">Add to Cart</button>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://masalaandchai.com/wp-content/uploads/2021/07/Masala-Chai-Featured.jpg" alt="Masala Chai">
+                            <h4>Masala Chai</h4>
+                            <p>Spiced Indian tea</p>
+                            <span class="price">₹30</span>
+                            <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                            <button class="add-to-cart" data-hotel="Beverage Station" data-item="Masala Chai" data-price="30">Add to Cart</button>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://rachnas-kitchen.com/wp-content/uploads/2017/07/cold-coffee-2.jpg" alt="Cold Coffee">
+                            <h4>Cold Coffee</h4>
+                            <p>Iced coffee with cream</p>
+                            <span class="price">₹90</span>
+                            <input type="number" class="item-qty" min="1" value="1" style="width:60px; margin-bottom:8px;">
+                            <button class="add-to-cart" data-hotel="Beverage Station" data-item="Cold Coffee" data-price="90">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="cart" class="section" style="display:none;">
+            <h2>Your Cart</h2>
+            <ul id="cart-items"></ul>
+            <p id="cart-total"></p>
+            <button id="buy-btn" class="buy-btn">Buy Now</button>
+        </section>
+        
+        <!-- Offers Section -->
+        <section id="offers" class="section" style="display:none;">
+            <h2>🎉 Special Offers & Deals</h2>
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <img src="https://www.godubrovnik.com/wp-content/uploads/pizza.jpg" alt="Pizza Offer">
+                    <div class="offer-content">
+                        <h3>🍕 Pizza Mania</h3>
+                        <p>Buy 2 Pizzas, Get 1 Free!</p>
+                        <span class="discount">50% OFF</span>
+                        <button class="claim-offer">Claim Offer</button>
+                    </div>
+                </div>
+                
+                <div class="offer-card">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&h=200&fit=crop" alt="Burger Offer">
+                    <div class="offer-content">
+                        <h3>🍔 Burger Bonanza</h3>
+                        <p>Free Delivery on Orders Above ₹299</p>
+                        <span class="discount">Free Delivery</span>
+                        <button class="claim-offer">Claim Offer</button>
+                    </div>
+                </div>
+                
+                <div class="offer-card">
+                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=300&h=200&fit=crop" alt="Indian Food Offer">
+                    <div class="offer-content">
+                        <h3>🍛 Indian Feast</h3>
+                        <p>30% Off on All Indian Dishes</p>
+                        <span class="discount">30% OFF</span>
+                        <button class="claim-offer">Claim Offer</button>
+                    </div>
+                </div>
+                
+                <div class="offer-card">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300&h=200&fit=crop" alt="Combo Offer">
+                    <div class="offer-content">
+                        <h3>🍽️ Combo Delight</h3>
+                        <p>25% Off on All Combo Meals</p>
+                        <span class="discount">25% OFF</span>
+                        <button class="claim-offer">Claim Offer</button>
+                    </div>
+                </div>
+                
+                <div class="offer-card">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=300&h=200&fit=crop" alt="Dessert Offer">
+                    <div class="offer-content">
+                        <h3>🍰 Sweet Treats</h3>
+                        <p>Buy Any 2 Desserts, Get 1 Free!</p>
+                        <span class="discount">33% OFF</span>
+                        <button class="claim-offer">Claim Offer</button>
+                    </div>
+                </div>
+                
+                <div class="offer-card">
+                    <img src="https://images.unsplash.com/photo-1546173159-315724a31696?w=300&h=200&fit=crop" alt="Beverage Offer">
+                    <div class="offer-content">
+                        <h3>🥤 Thirst Quenchers</h3>
+                        <p>40% Off on All Beverages</p>
+                        <span class="discount">40% OFF</span>
+                        <button class="claim-offer">Claim Offer</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <section id="login" class="section">
+        <h2>🎉 Welcome Back</h2>
+        <form id="login-form">
+            <div class="input-group">
+                <input type="text" placeholder="👤 Username" required>
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder=" Password" required>
+            </div>
+            <button type="submit"> Login</button>
+        </form>
+        <p>Don't have an account? <a href="#" id="show-signup">✨ Sign Up Here</a></p>
+    </section>
+    <section id="signup" class="section" style="display:none;">
+        <h2>🌟 Join Foodmitra</h2>
+        <form id="signup-form">
+            <div class="input-group">
+                <input type="text" placeholder=" Username" required>
+            </div>
+            <div class="input-group">
+                <input type="email" placeholder=" Email Address" required>
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder=" Password" required>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder=" Address" required>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder=" Pincode" required>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder=" Mobile Number" required>
+            </div>
+            <button type="submit">🚀 Create Account</button>
+        </form>
+        <p>Already have an account? <a href="#" id="show-login">✨ Login Here</a></p>
+    </section>
+    <div id="delivery-animation" class="delivery-animation-overlay" style="display:none;">
+        <div class="delivery-bike-container">
+            <svg width="320" height="120" viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Bike wheels -->
+                <circle cx="70" cy="100" r="20" fill="#222" stroke="#444" stroke-width="4"/>
+                <circle cx="250" cy="100" r="20" fill="#222" stroke="#444" stroke-width="4"/>
+                <!-- Bike body -->
+                <rect x="90" y="90" width="80" height="8" rx="4" fill="#ff6600"/>
+                <rect x="170" y="90" width="40" height="8" rx="4" fill="#ff6600"/>
+                <!-- Handlebar -->
+                <rect x="60" y="80" width="30" height="6" rx="3" fill="#ff6600" transform="rotate(-20 60 80)"/>
+                <!-- Delivery boy -->
+                <ellipse cx="110" cy="80" rx="12" ry="16" fill="#ffe0b2"/>
+                <circle cx="110" cy="70" r="10" fill="#ffb300"/>
+                <rect x="105" y="90" width="10" height="18" rx="5" fill="#1976d2"/>
+                <!-- Delivery box -->
+                <rect x="200" y="70" width="24" height="24" rx="4" fill="#fff" stroke="#ff6600" stroke-width="3"/>
+                <text x="212" y="86" font-size="10" fill="#ff6600" font-family="Arial" text-anchor="middle">FOOD</text>
+            </svg>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
