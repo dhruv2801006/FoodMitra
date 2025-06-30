@@ -73,7 +73,7 @@ body {
     margin: 0 !important;
     margin-top: 0 !important;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1920&q=80');
+                url('https://t4.ftcdn.net/jpg/06/03/64/07/360_F_603640779_QNVbk3tSd5nEU1uAO7RifpHUjLZCsjDJ.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -429,7 +429,7 @@ button[type="submit"]:hover {
     margin-bottom: 2rem;
     background: linear-gradient(45deg, #fff, #ffd700);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+   /* -webkit-text-fill-color: transparent; */
     background-clip: text;
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -568,7 +568,7 @@ button[type="submit"]:hover {
     margin-bottom: 2rem;
     background: linear-gradient(45deg, #fff, #ffd700);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    /*-webkit-text-fill-color: transparent;*/
     background-clip: text;
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
